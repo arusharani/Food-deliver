@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+
+
+
+    <changeSet id="1" author="d">
+        <createTable tableName="users">
+
+            <column name="user_id" type="int" autoIncrement="true" startWith="101" incrementBy="1">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="username" type="varchar(50)">
+                <constraints nullable="false"/>
+
+            </column>
+
+            <column name="phone_number" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+
+
+            <column name="user_address" type="varchar(70)">
+                <constraints nullable="false"/>
+            </column>
+
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="13" author="ddd">
+    <insert tableName="users">
+        <column name="username" value="usha"/>
+        <column name="phone_number" value="9059144368"/>
+        <column name="user_address" value="vepagunta"/>
+    </insert>
+
+        <insert tableName="users">
+            <column name="username" value="madhu"/>
+            <column name="phone_number" value="9059144369"/>
+            <column name="user_address" value="nad"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="username" value="padhu"/>
+            <column name="phone_number" value="9059144360"/>
+            <column name="user_address" value="pendurthi"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="username" value="maha"/>
+            <column name="phone_number" value="9059145360"/>
+            <column name="user_address" value="pendurthi"/>
+        </insert>
+
+        <insert tableName="users">
+        <column name="username" value="vardhan"/>
+        <column name="phone_number" value="9079145360"/>
+        <column name="user_address" value="gopalapatnam"/>
+    </insert>
+
+        <insert tableName="users">
+            <column name="username" value="neelu"/>
+            <column name="phone_number" value="9179145360"/>
+            <column name="user_address" value="gajuwaka"/>
+        </insert>
+
+
+
+    </changeSet>
+
+
+
+
+
+
+
+
+</databaseChangeLog>
