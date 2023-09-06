@@ -4,10 +4,7 @@ import com.example.FoodDeliverProject.entities.Orders;
 import com.example.FoodDeliverProject.exceptions.UserdefineException;
 import com.example.FoodDeliverProject.service.OrdersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,9 +25,13 @@ public class OrdersController {
         return ordersServiceImpl.getOrdersByUser(username);
     }
 
-    @PostMapping("/cancelOrder/{orderId}")
+    @DeleteMapping("/cancelOrder/{orderId}")
     public String cancelOrder(int orderId) throws UserdefineException {
         return ordersServiceImpl.cancelOrder(orderId);
     }
+@PutMapping("/update_order_address/{orderid}/{address}")
+    public String updateaddress(@PathVariable("orderid")int id,@PathVariable("address")String address) throws UserdefineException {
 
+return ordersServiceImpl.updateAddress(id,address);
+}
 }

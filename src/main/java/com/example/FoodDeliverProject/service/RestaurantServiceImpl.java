@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService {
@@ -22,8 +24,18 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
 
-    public Restaurant addRestaurant(Restaurant restaurant) {
+    public Restaurant addRestaurant(Restaurant restaurant)throws UserdefineException {
+
         Restaurant restaurant1 = new Restaurant();
+        Pattern pattern = Pattern.compile("[6-9][0-9]{9}");
+        Matcher matcher= pattern.matcher(restaurant.getContactNumber());
+        if(matcher.matches()){
+            restaurant1.setContactNumber(restaurant1.getContactNumber());
+        }
+        else {
+            throw new UserdefineException("please enter a valid mobile no.");
+        }
+
         restaurant1.setRestaurantName(restaurant.getRestaurantName());
         restaurant1.setRestaurantAddress(restaurant.getRestaurantAddress());
         restaurant1.setContactNumber(restaurant.getContactNumber());

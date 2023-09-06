@@ -9,7 +9,7 @@ public interface RestaurantService {
 
     public List<Restaurant> allRestaurant();
 
-    public Restaurant addRestaurant(Restaurant restaurant);
+    public Restaurant addRestaurant(Restaurant restaurant) throws UserdefineException;
 
     public void removeRestaurant(int restaurant_id) throws UserdefineException;
 
