@@ -33,7 +33,7 @@
 
         </createTable>
         <addForeignKeyConstraint baseTableName="ordereditems" baseColumnNames="order_id" constraintName="fk_ordereditems_orders" referencedTableName="orders"
-                                 referencedColumnNames="order_id" onDelete="CASCADE"/>
+                                 referencedColumnNames="order_id" onDelete="NO ACTION"/>
 
         <addForeignKeyConstraint baseTableName="ordereditems" baseColumnNames="item_id" constraintName="fk_ordereditems_menu" referencedTableName="menu"
                                  referencedColumnNames="item_id" onDelete="NO ACTION" onUpdate="NO ACTION" />

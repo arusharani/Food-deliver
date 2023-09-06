@@ -11,7 +11,7 @@ public interface UserService {
     public void removeUser(int user_id) throws UserdefineException;
 
 
-    public Users addUser(Users users);
+    public Users addUser(Users users) throws UserdefineException;
 
-    public Users updateAddress(int user_id,String address) throws UserdefineException;
+     Users updateAddress(int user_id,String address) throws UserdefineException;
 }

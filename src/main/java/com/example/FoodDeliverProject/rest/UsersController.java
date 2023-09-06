@@ -20,7 +20,7 @@ public class UsersController {
     }
 
     @PostMapping("/adduser")
-    public Users addUser(@RequestBody Users users){
+    public Users addUser(@RequestBody Users users) throws UserdefineException{
         return  usersServiceImpl.addUser(users);
     }
 
@@ -33,6 +33,7 @@ public class UsersController {
     public Users updateAddress(@PathVariable("user_id")int user_id, @PathVariable("address")String address) throws UserdefineException {
         return usersServiceImpl.updateAddress(user_id,address);
     }
+
 
 }
 

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class UsersServiceImpl implements UserService {
@@ -19,11 +21,20 @@ public class UsersServiceImpl implements UserService {
     }
 
     @Override
-    public Users addUser(Users users) {
+    public Users addUser(Users users) throws UserdefineException{
+
         Users user1 = new Users();
+        Pattern pattern = Pattern.compile("[6-9][0-9]{9}");
+        Matcher matcher = pattern.matcher(users.getPhoneNumber());
+        if(matcher.matches()){
+            user1.setPhoneNumber(user1.getPhoneNumber());
+        }
+        else {
+            throw new UserdefineException("please enter a valid mobile no.");
+        }
         user1.setUsername(users.getUsername());
         user1.setUserAddress(users.getUserAddress());
-        user1.setPhoneNumber(users.getPhoneNumber());
+
         return userRepo.save(user1);
 
     }

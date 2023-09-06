@@ -19,7 +19,7 @@ public class RestaurantController {
     }
 
     @PostMapping("/addRestaurant")
-    public Restaurant addRestaurant(@RequestBody Restaurant restaurant){
+    public Restaurant addRestaurant(@RequestBody Restaurant restaurant)throws UserdefineException{
         return  restaurantServiceImpl.addRestaurant(restaurant);
     }
 

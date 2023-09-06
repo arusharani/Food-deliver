@@ -12,4 +12,6 @@ public interface OrderService {
     public List<Orders> getOrdersByUser(String username);
 
     public String cancelOrder(int orderId) throws UserdefineException;
+
+    String updateAddress(int orderId,String Useraddress) throws UserdefineException;
 }
