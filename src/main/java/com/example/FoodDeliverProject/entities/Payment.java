@@ -1,10 +1,13 @@
 package com.example.FoodDeliverProject.entities;
 
+import com.example.FoodDeliverProject.enums.PAYMENTSTATUS;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name="payment")
+@Table(name="payments")
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,19 +15,21 @@ public class Payment {
     private int orderId;
     private String paymentType;
     private double paymentAmount;
-    private String status;
+    private LocalDateTime createdAt;
+    @Enumerated(EnumType.STRING)
+    private PAYMENTSTATUS status;
 
     @OneToOne
     @JoinColumn(name = "orderId",referencedColumnName ="orderId",insertable = false,updatable = false )
     @JsonIgnore
-    private Orders orders;
+    private Order order;
 
-    public Orders getOrders() {
-        return orders;
+    public Order getOrders() {
+        return order;
     }
 
-    public void setOrders(Orders orders) {
-        this.orders = orders;
+    public void setOrders(Order order) {
+        this.order = order;
     }
 
     public int getPaymentId() {
@@ -59,11 +64,27 @@ public class Payment {
         this.paymentAmount = paymentAmount;
     }
 
-    public String getStatus() {
+    public PAYMENTSTATUS getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(PAYMENTSTATUS status) {
         this.status = status;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

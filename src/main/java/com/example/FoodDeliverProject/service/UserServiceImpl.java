@@ -1,60 +1,64 @@
 package com.example.FoodDeliverProject.service;
 
-import com.example.FoodDeliverProject.entities.Users;
+import com.example.FoodDeliverProject.entities.User;
 import com.example.FoodDeliverProject.exceptions.UserdefineException;
 import com.example.FoodDeliverProject.repo.UserRepo;
+import com.example.FoodDeliverProject.serviceinterface.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Service
-public class UsersServiceImpl implements UserService {
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepo;
      @Override
-    public List<Users> allUsers() {
+    public List<User> getUsers() {
         return userRepo.findAll();
     }
 
     @Override
-    public Users addUser(Users users) throws UserdefineException{
+    public User addUser(User user) throws UserdefineException{
 
-        Users user1 = new Users();
+        User user1 = new User();
         Pattern pattern = Pattern.compile("[6-9][0-9]{9}");
-        Matcher matcher = pattern.matcher(users.getPhoneNumber());
+        Matcher matcher = pattern.matcher(user.getPhoneNumber());
         if(matcher.matches()){
-            user1.setPhoneNumber(user1.getPhoneNumber());
+            user1.setPhoneNumber(user.getPhoneNumber());
         }
         else {
             throw new UserdefineException("please enter a valid mobile no.");
         }
-        user1.setUsername(users.getUsername());
-        user1.setUserAddress(users.getUserAddress());
-
+        user1.setUsername(user.getUsername());
+        user1.setUserAddress(user.getUserAddress());
+        user1.setCreatedAt(LocalDateTime.now());
+        user1.setUpdatedAt(LocalDateTime.now());
         return userRepo.save(user1);
 
     }
      @Override
     public void removeUser(int user_id) throws UserdefineException{
-        Optional<Users> user=userRepo.findById(user_id);
+        Optional<User> user=userRepo.findById(user_id);
         if(user.isEmpty())
             throw new UserdefineException("Invalid user id");
         userRepo.deleteById(user_id);
     }
 
     @Override
-    public Users updateAddress(int user_id,String address) throws UserdefineException{
-        Optional<Users> users = userRepo.findById(user_id);
+    public User updateAddress(int user_id, String address) throws UserdefineException{
+        Optional<User> users = userRepo.findById(user_id);
         if(users.isEmpty())
             throw new UserdefineException("Invalid user id");
-        Users users1= users.get();
-        users1.setUserAddress(address);
-        userRepo.save(users1);
-        return users1;
+        User user1 = users.get();
+        user1.setUserAddress(address);
+        user1.setUpdatedAt(LocalDateTime.now());
+        userRepo.save(user1);
+        return user1;
     }
 
 }

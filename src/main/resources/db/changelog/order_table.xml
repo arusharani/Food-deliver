@@ -38,7 +38,7 @@
                                  referencedColumnNames="user_id" onDelete="CASCADE"/>
 
 
-    <addForeignKeyConstraint baseTableName="orders" baseColumnNames="restaurant_id" constraintName="fk_orders_restaurant" referencedTableName="restaurant"
+    <addForeignKeyConstraint baseTableName="orders" baseColumnNames="restaurant_id" constraintName="fk_orders_restaurants" referencedTableName="restaurants"
                              referencedColumnNames="restaurant_id" onDelete="CASCADE"/>
 
     </changeSet>

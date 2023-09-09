@@ -1,9 +1,10 @@
 package com.example.FoodDeliverProject.service;
 
 import com.example.FoodDeliverProject.entities.Payment;
-import com.example.FoodDeliverProject.repo.OrdersRepo;
+import com.example.FoodDeliverProject.repo.OrderRepo;
 import com.example.FoodDeliverProject.repo.PaymentRepo;
 import com.example.FoodDeliverProject.repo.UserRepo;
+import com.example.FoodDeliverProject.serviceinterface.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +20,11 @@ public class PaymentServiceImpl implements PaymentService {
     private UserRepo userRepo;
 
     @Autowired
-    private OrdersRepo ordersRepo;
+    private OrderRepo orderRepo;
 
 
     @Override
-    public List<Payment> allPayment() {
+    public List<Payment> getPayment() {
         return paymentRepo.findAll();
     }
 

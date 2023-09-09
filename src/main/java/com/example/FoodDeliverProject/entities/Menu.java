@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="menu")
+@Table(name="menus")
 public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,19 +16,19 @@ public class Menu {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name="restaurantId",referencedColumnName = "restaurantId",insertable = false,updatable = false)
+    @JoinColumn(name="restaurantId",insertable = false,updatable = false)
     @JsonIgnore
     private Restaurant restaurant;
 
     @OneToMany(mappedBy = "menu")
     @JsonIgnore
-    private List<OrderedItems> orderedItems;
+    private List<OrderedItem> orderedItems;
 
-    public List<OrderedItems> getOrderedItems() {
+    public List<OrderedItem> getOrderedItems() {
         return orderedItems;
     }
 
-    public void setOrderedItems(List<OrderedItems> orderedItems) {
+    public void setOrderedItems(List<OrderedItem> orderedItems) {
         this.orderedItems = orderedItems;
     }
 

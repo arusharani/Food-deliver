@@ -28,6 +28,14 @@
                 <constraints nullable="false"/>
             </column>
 
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+
 
         </createTable>
     </changeSet>
@@ -37,37 +45,51 @@
         <column name="username" value="usha"/>
         <column name="phone_number" value="9059144368"/>
         <column name="user_address" value="vepagunta"/>
+        <column name="created_at" value="2023-09-01 10:30:00"/>
+        <column name="updated_at" value="2023-09-03 09:30:00"/>
     </insert>
 
         <insert tableName="users">
             <column name="username" value="madhu"/>
             <column name="phone_number" value="9059144369"/>
             <column name="user_address" value="nad"/>
+            <column name="created_at" value="2023-09-02 10:30:00"/>
+            <column name="updated_at" value="2023-09-06 09:30:00"/>
         </insert>
 
         <insert tableName="users">
             <column name="username" value="padhu"/>
             <column name="phone_number" value="9059144360"/>
             <column name="user_address" value="pendurthi"/>
+            <column name="created_at" value="2023-09-01 10:30:00"/>
+            <column name="updated_at" value="2023-09-07 09:30:00"/>
         </insert>
 
         <insert tableName="users">
             <column name="username" value="maha"/>
             <column name="phone_number" value="9059145360"/>
             <column name="user_address" value="pendurthi"/>
+            <column name="created_at" value="2023-09-02 10:30:00"/>
+            <column name="updated_at" value="2023-09-08 09:30:00"/>
         </insert>
 
         <insert tableName="users">
         <column name="username" value="vardhan"/>
         <column name="phone_number" value="9079145360"/>
         <column name="user_address" value="gopalapatnam"/>
+            <column name="created_at" value="2023-09-03 10:30:00"/>
+            <column name="updated_at" value="2023-09-06 09:30:00"/>
     </insert>
 
         <insert tableName="users">
             <column name="username" value="neelu"/>
             <column name="phone_number" value="9179145360"/>
             <column name="user_address" value="gajuwaka"/>
+            <column name="created_at" value="2023-09-05 10:30:00"/>
+            <column name="updated_at" value="2023-09-06 09:30:00"/>
         </insert>
+
+
 
 
 

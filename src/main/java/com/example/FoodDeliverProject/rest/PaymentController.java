@@ -12,9 +12,9 @@ import java.util.List;
 public class PaymentController {
     @Autowired
     private PaymentServiceImpl paymentServiceImpl;
-    @GetMapping("/allPayments")
-    public List<Payment> allPayment() {
-        return paymentServiceImpl.allPayment();
+    @GetMapping("/getPayments")
+    public List<Payment> getPayment() {
+        return paymentServiceImpl.getPayment();
     }
 
 

@@ -1,15 +1,15 @@
-package com.example.FoodDeliverProject.service;
+package com.example.FoodDeliverProject.serviceinterface;
 
-import com.example.FoodDeliverProject.entities.Orders;
+import com.example.FoodDeliverProject.entities.Order;
 import com.example.FoodDeliverProject.exceptions.UserdefineException;
 
 import java.util.List;
 
 public interface OrderService {
 
-    public List<Orders> allOrders();
+    public List<Order> getOrders();
 
-    public List<Orders> getOrdersByUser(String username);
+    public List<Order> getOrdersByUser(int userId) throws UserdefineException;
 
     public String cancelOrder(int orderId) throws UserdefineException;
 

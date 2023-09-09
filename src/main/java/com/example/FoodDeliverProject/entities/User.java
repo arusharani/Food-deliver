@@ -2,31 +2,33 @@ package com.example.FoodDeliverProject.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name ="users")
-public class Users {
+public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
-
     private String username;
     private String phoneNumber;
     private String userAddress;
-    @OneToMany(mappedBy = "users")
-    @JsonIgnore
-    private List<Orders> orders;
 
-  public List<Orders> getOrders() {
-    return orders;
-  }
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+//    @OneToMany(mappedBy = "user")
+//    @JsonIgnore
+//    private List<Order> orders;
 
-  public void setOrders(List<Orders> orders) {
-    this.orders = orders;
-  }
+//  public List<Order> getOrders() {
+//    return orders;
+//  }
+//
+//  public void setOrders(List<Order> orders) {
+//    this.orders = orders;
+//  }
 
   public int getUserId() {
     return userId;
@@ -58,5 +60,21 @@ public class Users {
 
   public void setUserAddress(String userAddress) {
     this.userAddress = userAddress;
+  }
+
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public LocalDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(LocalDateTime updatedAt) {
+    this.updatedAt = updatedAt;
   }
 }

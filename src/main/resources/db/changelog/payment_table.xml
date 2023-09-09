@@ -7,7 +7,7 @@
 
 
     <changeSet id="8" author="aa">
-        <createTable tableName="Payment">
+        <createTable tableName="Payments">
 
             <column name="payment_id" type="int" autoIncrement="true" startWith="10001" incrementBy="1">
                 <constraints primaryKey="true"/>
@@ -32,52 +32,63 @@
                 <constraints nullable="false"/>
             </column>
 
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+
 
         </createTable>
-        <addUniqueConstraint tableName="payment" columnNames="order_id"/>
+        <addUniqueConstraint tableName="payments" columnNames="order_id"/>
 
 
-        <addForeignKeyConstraint baseTableName="payment" baseColumnNames="order_id" constraintName="fk_payment_orders" referencedTableName="orders"
+        <addForeignKeyConstraint baseTableName="payments" baseColumnNames="order_id" constraintName="fk_payment_orders" referencedTableName="orders"
                                  referencedColumnNames="order_id" onDelete="CASCADE"/>
 
     </changeSet>
 
     <changeSet id="16" author="madhuu">
-    <insert tableName="payment">
+    <insert tableName="payments">
         <column name="order_id" value="900"/>
         <column name="payment_amount" value="900.00"/>
 
         <column name="payment_type" value="cash on deliver"/>
         <column name="status" value="pending"/>
+        <column name="created_at" value="2023-09-01 11:30:00"/>
     </insert>
 
-    <insert tableName="payment">
+    <insert tableName="payments">
         <column name="order_id" value="901"/>
         <column name="payment_amount" value="600.00"/>
         <column name="payment_type" value="online payment"/>
         <column name="status" value="success"/>
+        <column name="created_at" value="2023-09-02 12:30:00"/>
     </insert>
 
-    <insert tableName="payment">
+    <insert tableName="payments">
         <column name="order_id" value="902"/>
         <column name="payment_amount" value="400.00"/>
         <column name="payment_type" value="online payment"/>
         <column name="status" value="success"/>
+        <column name="created_at" value="2023-09-05 08:30:00"/>
     </insert>
 
-    <insert tableName="payment">
+    <insert tableName="payments">
         <column name="order_id" value="903"/>
         <column name="payment_amount" value="400.00"/>
         <column name="payment_type" value="upi"/>
         <column name="status" value="success"/>
+        <column name="created_at" value="2023-09-05 08:30:00"/>
     </insert>
 
-    <insert tableName="payment">
+    <insert tableName="payments">
         <column name="order_id" value="904"/>
         <column name="payment_amount" value="700.00"/>
         <column name="payment_type" value="upi"/>
         <column name="status" value="success"/>
+        <column name="created_at" value="2023-09-06 09:30:00"/>
     </insert>
+
+
 
 
     </changeSet>

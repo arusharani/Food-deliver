@@ -1,8 +1,10 @@
 package com.example.FoodDeliverProject.service;
 
 import com.example.FoodDeliverProject.entities.*;
+import com.example.FoodDeliverProject.enums.ORDERSTATUS;
 import com.example.FoodDeliverProject.exceptions.UserdefineException;
 import com.example.FoodDeliverProject.repo.*;
+import com.example.FoodDeliverProject.serviceinterface.OrderedItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,50 +27,67 @@ public class OrderedItemServiceImpl implements OrderedItemService {
     private UserRepo userRepo;
 
     @Autowired
-    private OrdersRepo ordersRepo;
+    private OrderRepo orderRepo;
 
 
     @Override
-    public List<OrderedItems> allOrders() {
+    public List<OrderedItem> getOrders() {
         return orderedItemsRepo.findAll();
     }
 
 
     @Override
-    public String  orderItem(String restaurantName,String itemName, int quantity,String userName) throws UserdefineException {
-        Menu menuObj = menuRepo.findByItemName(itemName);
+    public String  orderItem(List<OrderedItem> orderedItem,int userId) throws UserdefineException {
+        var usersObj = userRepo.findById(userId);
 
-        if(menuObj==null){
-
-            throw new UserdefineException("Item not found");
-        }
-        Optional<Restaurant> restaurantObj = restaurantRepo.findById(menuObj.getRestaurantId());
-        Restaurant restaurant1 = restaurantObj.get();
-
-        if(!(restaurant1.getRestaurantName()).equals(restaurantName)){
-
-            throw new UserdefineException("Restaurant not found");
-        }
-        var usersObj = userRepo.findByusername(userName);
-
-        if(usersObj==null){
+        if(usersObj.isEmpty()){
             throw  new UserdefineException("User Not Found");
         }
+        Order order = new Order();
+        order.setUserId(userId);
 
-            OrderedItems orderedItems = new OrderedItems();
 
-            Orders orders = new Orders();
-            orders.setUserId(usersObj.getUserId());
-            orders.setRestaurantId(restaurant1.getRestaurantId());
-            orders.setTotalAmount(menuObj.getPrice() * quantity);
-            orders.setStatus("preparing");
-            ordersRepo.save(orders);
+        for(OrderedItem orderedItem1 : orderedItem){
 
-            orderedItems.setAmount(menuObj.getPrice());
-            orderedItems.setOrderId(orders.getOrderId());
-            orderedItems.setItemId(menuObj.getItemId());
-            orderedItems.setQuantity(quantity);
-            orderedItemsRepo.save(orderedItems);
+            Optional<Menu>  menuObj = menuRepo.findById(orderedItem1.getItemId());
+            Menu menu1 = menuObj.get();
+            OrderedItem orderedItem2 = new OrderedItem();
+            orderedItem2.setOrderId(order.getOrderId());
+            orderedItem2.setItemId(orderedItem1.getItemId());
+            orderedItem2.setAmount(menu1.getPrice());
+            orderedItem2.setQuantity(orderedItem1.getQuantity());
+        }
+
+
+//
+//
+//        if(menuObj==null){
+//
+//            throw new UserdefineException("Item not found");
+//        }
+//        Optional<Restaurant> restaurantObj = restaurantRepo.findById(menu1.getRestaurantId());
+//        Restaurant restaurant1 = restaurantObj.get();
+//
+//        if((restaurant1.getRestaurantId())!=(restaurantId)){
+//
+//            throw new UserdefineException("Restaurant not found");
+//        }
+//
+//           User user1 = usersObj.get();
+//            OrderedItem orderedItem = new OrderedItem();
+//
+//
+//            order.setUserId(user1.getUserId());
+//            order.setRestaurantId(restaurant1.getRestaurantId());
+//            order.setTotalAmount(menu1.getPrice() * quantity);
+//            order.setStatus(ORDERSTATUS.valueOf("preparing"));
+//            orderRepo.save(order);
+//
+//            orderedItem.setAmount(menu1.getPrice());
+//            orderedItem.setOrderId(order.getOrderId());
+//            orderedItem.setItemId(menu1.getItemId());
+//            orderedItem.setQuantity(quantity);
+//            orderedItemsRepo.save(orderedItem);
 
 
         return "order placed";
