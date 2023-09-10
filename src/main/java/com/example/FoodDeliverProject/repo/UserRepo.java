@@ -1,10 +1,10 @@
 package com.example.FoodDeliverProject.repo;
 
-import com.example.FoodDeliverProject.entities.Users;
+import com.example.FoodDeliverProject.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface
-UserRepo extends JpaRepository<Users,Integer> {
+UserRepo extends JpaRepository<User,Integer> {
 
-    Users findByusername(String userName);
+    User findByusername(String userName);
 }

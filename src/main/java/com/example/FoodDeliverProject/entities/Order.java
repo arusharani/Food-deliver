@@ -1,5 +1,6 @@
 package com.example.FoodDeliverProject.entities;
 
+import com.example.FoodDeliverProject.enums.ORDERSTATUS;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name="orders")
-public class Orders {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
@@ -15,56 +16,25 @@ public class Orders {
     private int userId;
     private int restaurantId;
     private double totalAmount;
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private ORDERSTATUS status;
   @ManyToOne
   @JoinColumn(name="userId",referencedColumnName = "userId",insertable = false,updatable = false)
   @JsonIgnore
-  private Users users;
+  private User user;
 
   @ManyToOne
   @JoinColumn(name = "restaurantId",referencedColumnName = "restaurantId",insertable = false,updatable = false)
   @JsonIgnore
   private Restaurant restaurant;
 
-  @OneToOne(mappedBy = "orders")
+  @OneToOne(mappedBy = "order")
   @JsonIgnore
   private Payment payment;
 
-  @OneToMany(mappedBy = "orders")
+  @OneToMany(mappedBy = "order")
   @JsonIgnore
-  private List<OrderedItems> ordereditems;
-
-    public Users getUsers() {
-        return users;
-    }
-
-    public void setUsers(Users users) {
-        this.users = users;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
-
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
-    public List<OrderedItems> getOrdereditems() {
-        return ordereditems;
-    }
-
-    public void setOrdereditems(List<OrderedItems> ordereditems) {
-        this.ordereditems = ordereditems;
-    }
+  private List<OrderedItem> ordereditems;
 
     public int getOrderId() {
         return orderId;
@@ -98,11 +68,43 @@ public class Orders {
         this.totalAmount = totalAmount;
     }
 
-    public String getStatus() {
+    public ORDERSTATUS getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ORDERSTATUS status) {
         this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
+    public List<OrderedItem> getOrdereditems() {
+        return ordereditems;
+    }
+
+    public void setOrdereditems(List<OrderedItem> ordereditems) {
+        this.ordereditems = ordereditems;
     }
 }

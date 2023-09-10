@@ -7,7 +7,7 @@
 
 
     <changeSet id="2" author="b">
-    <createTable tableName="restaurant">
+    <createTable tableName="restaurants">
 
         <column name="restaurant_id" type="int" autoIncrement="true" startWith="501" incrementBy="1">
             <constraints primaryKey="true"/>
@@ -27,47 +27,68 @@
             <constraints nullable="false"/>
         </column>
 
+        <column name="created_at" type="datetime">
+            <constraints nullable="false"/>
+        </column>
+        <column name="updated_at" type="datetime">
+            <constraints nullable="false"/>
+        </column>
+
 
     </createTable>
 
     </changeSet>
 
     <changeSet id="14" author="maha">
-    <insert tableName="restaurant">
+    <insert tableName="restaurants">
         <column name="restaurant_name" value="reboot"/>
         <column name="contact_number" value="9059122368"/>
         <column name="restaurant_address" value="rushikonda"/>
+        <column name="created_at" value="2023-09-01 09:15:00"/>
+        <column name="updated_at" value="2023-09-05 08:30:00"/>
     </insert>
 
-        <insert tableName="restaurant">
+        <insert tableName="restaurants">
             <column name="restaurant_name" value="platform 65"/>
             <column name="contact_number" value="8500186299"/>
             <column name="restaurant_address" value="siripuram"/>
+            <column name="created_at" value="2023-09-02 10:15:00"/>
+            <column name="updated_at" value="2023-09-06 08:30:00"/>
         </insert>
 
-        <insert tableName="restaurant">
+        <insert tableName="restaurants">
             <column name="restaurant_name" value="mandi"/>
             <column name="contact_number" value="9044122368"/>
             <column name="restaurant_address" value="nad"/>
+            <column name="created_at" value="2023-09-01 09:15:00"/>
+            <column name="updated_at" value="2023-09-06 08:30:00"/>
         </insert>
 
-        <insert tableName="restaurant">
+        <insert tableName="restaurants">
             <column name="restaurant_name" value="celebration"/>
             <column name="contact_number" value="9044122368"/>
             <column name="restaurant_address" value="vepagunta"/>
+            <column name="created_at" value="2023-09-03 09:15:00"/>
+            <column name="updated_at" value="2023-09-07 08:30:00"/>
         </insert>
 
-        <insert tableName="restaurant">
+        <insert tableName="restaurants">
             <column name="restaurant_name" value="barbeque nation"/>
             <column name="contact_number" value="9022122368"/>
             <column name="restaurant_address" value="marripalem"/>
+            <column name="created_at" value="2023-09-01 09:15:00"/>
+            <column name="updated_at" value="2023-09-06 08:30:00"/>
         </insert>
 
-        <insert tableName="restaurant">
+        <insert tableName="restaurants">
             <column name="restaurant_name" value="abc restaurant"/>
             <column name="contact_number" value="9022322368"/>
             <column name="restaurant_address" value="marripalem"/>
+            <column name="created_at" value="2023-09-01 09:15:00"/>
+            <column name="updated_at" value="2023-09-07 09:30:00"/>
         </insert>
+
+
 
 
     </changeSet>

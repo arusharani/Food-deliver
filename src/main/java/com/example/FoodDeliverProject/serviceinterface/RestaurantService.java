@@ -1,4 +1,4 @@
-package com.example.FoodDeliverProject.service;
+package com.example.FoodDeliverProject.serviceinterface;
 
 import com.example.FoodDeliverProject.entities.Restaurant;
 import com.example.FoodDeliverProject.exceptions.UserdefineException;
@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RestaurantService {
 
-    public List<Restaurant> allRestaurant();
+    public List<Restaurant> getRestaurant();
 
     public Restaurant addRestaurant(Restaurant restaurant) throws UserdefineException;
 

@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="ordereditems")
-public class OrderedItems {
+public class OrderedItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderedItemsId;
@@ -16,7 +16,7 @@ public class OrderedItems {
     @ManyToOne
     @JoinColumn(name = "orderId",referencedColumnName = "orderId",insertable = false,updatable = false)
     @JsonIgnore
-    private Orders orders;
+    private Order order;
 
     @ManyToOne
     @JoinColumn(name = "itemId",referencedColumnName = "itemId",insertable = false,updatable = false)
@@ -29,22 +29,6 @@ public class OrderedItems {
 
     public void setOrderedItemsId(int orderedItemsId) {
         this.orderedItemsId = orderedItemsId;
-    }
-
-    public Orders getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Orders orders) {
-        this.orders = orders;
-    }
-
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
     }
 
     public int getOrderId() {
@@ -78,4 +62,21 @@ public class OrderedItems {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
 }

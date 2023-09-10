@@ -4,10 +4,11 @@ package com.example.FoodDeliverProject.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "restaurant")
+@Table(name = "restaurants")
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,29 +16,33 @@ public class Restaurant {
     private String restaurantName;
     private String restaurantAddress;
     private String contactNumber;
-    @OneToMany(mappedBy = "restaurant")
-    @JsonIgnore
-    private List<Orders> orders;
 
-    @OneToMany(mappedBy = "restaurant")
-    @JsonIgnore
-    private List<Menu> menu;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+//    @OneToMany(mappedBy = "restaurants")
+//    @JsonIgnore
+//    private List<Order> orders;
 
-    public List<Orders> getOrders() {
-        return orders;
-    }
+//    @OneToMany(mappedBy = "restaurant")
+//    @JsonIgnore
+//    private List<Menu> menu;
 
-    public void setOrders(List<Orders> orders) {
-        this.orders = orders;
-    }
+//    public List<Order> getOrders() {
+//        return orders;
+//    }
+//
+//    public void setOrders(List<Order> orders) {
+//        this.orders = orders;
+//    }
+//
+//    public List<Menu> getMenu() {
+//        return menu;
+//    }
+//
+//    public void setMenu(List<Menu> menu) {
+//        this.menu = menu;
+//    }
 
-    public List<Menu> getMenu() {
-        return menu;
-    }
-
-    public void setMenu(List<Menu> menu) {
-        this.menu = menu;
-    }
 
     public int getRestaurantId() {
         return restaurantId;
@@ -55,6 +60,13 @@ public class Restaurant {
         this.restaurantName = restaurantName;
     }
 
+    public String getRestaurantAddress() {
+        return restaurantAddress;
+    }
+
+    public void setRestaurantAddress(String restaurantAddress) {
+        this.restaurantAddress = restaurantAddress;
+    }
 
     public String getContactNumber() {
         return contactNumber;
@@ -64,13 +76,19 @@ public class Restaurant {
         this.contactNumber = contactNumber;
     }
 
-    public String getRestaurantAddress() {
-        return restaurantAddress;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setRestaurantAddress(String restaurantAddress) {
-        this.restaurantAddress = restaurantAddress;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

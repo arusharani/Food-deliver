@@ -7,7 +7,7 @@
 
 
     <changeSet id="6" author="e">
-        <createTable tableName="menu">
+        <createTable tableName="menus">
 
             <column name="item_id" type="int" autoIncrement="true" startWith="1" incrementBy="1">
                 <constraints primaryKey="true"/>
@@ -27,54 +27,52 @@
                 <constraints nullable="false"/>
             </column>
 
-
         </createTable>
-        <addForeignKeyConstraint baseTableName="menu" baseColumnNames="restaurant_id" constraintName="fk_menu_restaurant" referencedTableName="restaurant"
+        <addForeignKeyConstraint baseTableName="menus" baseColumnNames="restaurant_id" constraintName="fk_menu_restaurant" referencedTableName="restaurants"
                                  referencedColumnNames="restaurant_id" onDelete="CASCADE"/>
 
 
     </changeSet>
 
     <changeSet id="16" author="madhuu">
-    <insert tableName="menu">
+    <insert tableName="menus">
         <column name="restaurant_id" value="501"/>
         <column name="item_name" value="chicken biryani"/>
 
         <column name="price" value="500.00"/>
 
     </insert>
-    <insert tableName="menu">
+    <insert tableName="menus">
         <column name="restaurant_id" value="501"/>
         <column name="item_name" value="apollo fish"/>
 
         <column name="price" value="400.00"/>
 
     </insert>
-    <insert tableName="menu">
+    <insert tableName="menus">
         <column name="restaurant_id" value="502"/>
         <column name="item_name" value="chicken 65"/>
 
         <column name="price" value="300.00"/>
 
     </insert>
-    <insert tableName="menu">
+    <insert tableName="menus">
         <column name="restaurant_id" value="503"/>
         <column name="item_name" value="veg biryani"/>
 
         <column name="price" value="400.00"/>
 
     </insert>
-    <insert tableName="menu">
+    <insert tableName="menus">
         <column name="restaurant_id" value="504"/>
         <column name="item_name" value="paneer butternon"/>
 
         <column name="price" value="500.00"/>
 
     </insert>
-    <insert tableName="menu">
+    <insert tableName="menus">
         <column name="restaurant_id" value="504"/>
         <column name="item_name" value="gulabjamum"/>
-
         <column name="price" value="200.00"/>
 
     </insert>

@@ -13,7 +13,7 @@
             relativeToChangelogFile="false" />
 
     <include
-            file="classpath:db/changelog/orders_table.xml"
+            file="classpath:db/changelog/order_table.xml"
             relativeToChangelogFile="false" />
 
     <include
@@ -27,6 +27,7 @@
     <include
             file="classpath:db/changelog/payment_table.xml"
             relativeToChangelogFile="false" />
+
     <include
             file="classpath:db/changelog/ordered_table.xml"
             relativeToChangelogFile="false" />

@@ -3,9 +3,11 @@ package com.example.FoodDeliverProject.service;
 import com.example.FoodDeliverProject.entities.Restaurant;
 import com.example.FoodDeliverProject.exceptions.UserdefineException;
 import com.example.FoodDeliverProject.repo.RestaurantRepo;
+import com.example.FoodDeliverProject.serviceinterface.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
@@ -18,7 +20,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     private RestaurantRepo restaurantRepo;
 
     @Override
-    public List<Restaurant> allRestaurant(){
+    public List<Restaurant> getRestaurant(){
         return restaurantRepo.findAll();
     }
 
@@ -39,6 +41,8 @@ public class RestaurantServiceImpl implements RestaurantService {
         restaurant1.setRestaurantName(restaurant.getRestaurantName());
         restaurant1.setRestaurantAddress(restaurant.getRestaurantAddress());
         restaurant1.setContactNumber(restaurant.getContactNumber());
+        restaurant1.setCreatedAt(LocalDateTime.now());
+        restaurant1.setUpdatedAt(LocalDateTime.now());
         return restaurantRepo.save(restaurant1);
 
     }
@@ -57,6 +61,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
         Restaurant restaurant1 = restaurant.get();
         restaurant1.setRestaurantAddress(address);
+        restaurant1.setUpdatedAt(LocalDateTime.now());
         restaurantRepo.save(restaurant1);
         return restaurant1;
     }

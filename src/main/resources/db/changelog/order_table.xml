@@ -38,7 +38,7 @@
                                  referencedColumnNames="user_id" onDelete="CASCADE"/>
 
 
-    <addForeignKeyConstraint baseTableName="orders" baseColumnNames="restaurant_id" constraintName="fk_orders_restaurant" referencedTableName="restaurant"
+    <addForeignKeyConstraint baseTableName="orders" baseColumnNames="restaurant_id" constraintName="fk_orders_restaurants" referencedTableName="restaurants"
                              referencedColumnNames="restaurant_id" onDelete="CASCADE"/>
 
     </changeSet>
@@ -63,28 +63,24 @@
             <column name="user_id" value="102"/>
             <column name="restaurant_id" value="503"/>
             <column name="total_amount" value="400.00"/>
-            <column name="status" value="on the way"/>
+            <column name="status" value="on_the_way"/>
         </insert>
 
         <insert tableName="orders">
             <column name="user_id" value="104"/>
             <column name="restaurant_id" value="503"/>
             <column name="total_amount" value="400.00"/>
-            <column name="status" value="on the way"/>
+            <column name="status" value="on_the_way"/>
         </insert>
 
         <insert tableName="orders">
             <column name="user_id" value="105"/>
             <column name="restaurant_id" value="504"/>
             <column name="total_amount" value="700.00"/>
-            <column name="status" value="on the way"/>
+            <column name="status" value="on_the_way"/>
         </insert>
 
-
-
     </changeSet>
-
-
 
 
 </databaseChangeLog>
