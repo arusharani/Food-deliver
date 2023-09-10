@@ -24,14 +24,6 @@ public class Payment {
     @JsonIgnore
     private Order order;
 
-    public Order getOrders() {
-        return order;
-    }
-
-    public void setOrders(Order order) {
-        this.order = order;
-    }
-
     public int getPaymentId() {
         return paymentId;
     }
@@ -64,6 +56,14 @@ public class Payment {
         this.paymentAmount = paymentAmount;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public PAYMENTSTATUS getStatus() {
         return status;
     }
@@ -78,13 +78,5 @@ public class Payment {
 
     public void setOrder(Order order) {
         this.order = order;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }

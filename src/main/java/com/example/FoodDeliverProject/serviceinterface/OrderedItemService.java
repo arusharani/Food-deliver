@@ -9,7 +9,7 @@ public interface OrderedItemService {
 
     public List<OrderedItem> getOrders();
 
-    public String  orderItem(List<OrderedItem> orderedItem,int userId) throws UserdefineException;
+    public String  orderItem(List<OrderedItem> orderedItem,int userId,int restaurantId) throws UserdefineException;
 
 
 

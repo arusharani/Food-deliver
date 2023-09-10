@@ -13,5 +13,6 @@ public interface OrderService {
 
     public String cancelOrder(int orderId) throws UserdefineException;
 
-    String updateAddress(int orderId,String Useraddress) throws UserdefineException;
+   // String updateAddress(int orderId,String Useraddress) throws UserdefineException;
+
 }

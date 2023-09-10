@@ -43,6 +43,7 @@ public class Restaurant {
 //        this.menu = menu;
 //    }
 
+
     public int getRestaurantId() {
         return restaurantId;
     }
@@ -59,6 +60,13 @@ public class Restaurant {
         this.restaurantName = restaurantName;
     }
 
+    public String getRestaurantAddress() {
+        return restaurantAddress;
+    }
+
+    public void setRestaurantAddress(String restaurantAddress) {
+        this.restaurantAddress = restaurantAddress;
+    }
 
     public String getContactNumber() {
         return contactNumber;
@@ -66,14 +74,6 @@ public class Restaurant {
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
-    }
-
-    public String getRestaurantAddress() {
-        return restaurantAddress;
-    }
-
-    public void setRestaurantAddress(String restaurantAddress) {
-        this.restaurantAddress = restaurantAddress;
     }
 
     public LocalDateTime getCreatedAt() {

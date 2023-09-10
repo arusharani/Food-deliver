@@ -27,9 +27,10 @@ public class UserController {
     @DeleteMapping("/User/{user_id}")
     public String removeUser(@PathVariable("user_id")int user_id) throws UserdefineException{
         userServiceImpl.removeUser(user_id);
-        return "User deletedUser";
+        return "deleted User "+user_id;
     }
-    @PutMapping("/Address/{user_id}/{address}")
+
+    @PutMapping("/Address/{user_id}/address/{address}")
     public User updateAddress(@PathVariable("user_id")int user_id, @PathVariable("address")String address) throws UserdefineException {
         return userServiceImpl.updateAddress(user_id,address);
     }

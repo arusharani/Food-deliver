@@ -26,11 +26,11 @@ public class RestaurantController {
     @DeleteMapping("/Restaurant/{restaurant_id}")
     public String removeRestaurant(@PathVariable("restaurant_id")int restaurant_id) throws UserdefineException {
         restaurantServiceImpl.removeRestaurant(restaurant_id);
-        return "Restaurant deletedRestaurant";
+        return "deleted Restaurant"+restaurant_id;
     }
 
     @PutMapping("/Address/{restaurant_id}/{address}")
-    public Restaurant updateAddress(@PathVariable("restaurant_id")int restaurant_id, @PathVariable("address")String address){
+    public Restaurant updateRestaurantAddress(@PathVariable("restaurant_id")int restaurant_id, @PathVariable("address")String address){
         return restaurantServiceImpl.updateAddress(restaurant_id,address);
     }
 }

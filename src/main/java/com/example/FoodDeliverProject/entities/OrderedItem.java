@@ -31,22 +31,6 @@ public class OrderedItem {
         this.orderedItemsId = orderedItemsId;
     }
 
-    public Order getOrders() {
-        return order;
-    }
-
-    public void setOrders(Order order) {
-        this.order = order;
-    }
-
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-    }
-
     public int getOrderId() {
         return orderId;
     }
@@ -78,4 +62,21 @@ public class OrderedItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
 }

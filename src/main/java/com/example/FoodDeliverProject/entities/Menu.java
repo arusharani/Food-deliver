@@ -24,22 +24,6 @@ public class Menu {
     @JsonIgnore
     private List<OrderedItem> orderedItems;
 
-    public List<OrderedItem> getOrderedItems() {
-        return orderedItems;
-    }
-
-    public void setOrderedItems(List<OrderedItem> orderedItems) {
-        this.orderedItems = orderedItems;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
-
     public int getItemId() {
         return itemId;
     }
@@ -70,5 +54,21 @@ public class Menu {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public List<OrderedItem> getOrderedItems() {
+        return orderedItems;
+    }
+
+    public void setOrderedItems(List<OrderedItem> orderedItems) {
+        this.orderedItems = orderedItems;
     }
 }

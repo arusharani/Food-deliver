@@ -29,9 +29,9 @@ public class OrderController {
     public String cancelOrder(int orderId) throws UserdefineException {
         return orderServiceImpl.cancelOrder(orderId);
     }
-    @PutMapping("/order_address/{orderid}/address/{address}")
-    public String updateaddress(@PathVariable("orderid")int id,@PathVariable("address")String address) throws UserdefineException {
-
-    return orderServiceImpl.updateAddress(id,address);
-    }
+//    @PutMapping("/order_address/{orderid}/address/{address}")
+//    public String updateaddress(@PathVariable("orderid")int id,@PathVariable("address")String address) throws UserdefineException {
+//
+//    return orderServiceImpl.updateAddress(id,address);
+//    }
 }

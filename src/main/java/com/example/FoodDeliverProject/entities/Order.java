@@ -36,38 +36,6 @@ public class Order {
   @JsonIgnore
   private List<OrderedItem> ordereditems;
 
-    public User getUsers() {
-        return user;
-    }
-
-    public void setUsers(User user) {
-        this.user = user;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
-
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
-    public List<OrderedItem> getOrdereditems() {
-        return ordereditems;
-    }
-
-    public void setOrdereditems(List<OrderedItem> ordereditems) {
-        this.ordereditems = ordereditems;
-    }
-
     public int getOrderId() {
         return orderId;
     }
@@ -114,5 +82,29 @@ public class Order {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
+    public List<OrderedItem> getOrdereditems() {
+        return ordereditems;
+    }
+
+    public void setOrdereditems(List<OrderedItem> ordereditems) {
+        this.ordereditems = ordereditems;
     }
 }

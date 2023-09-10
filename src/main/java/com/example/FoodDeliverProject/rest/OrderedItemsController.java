@@ -22,8 +22,8 @@ public class OrderedItemsController {
     }
 
     @PostMapping("/orderItem")
-    public  String orderItem(@RequestBody List<OrderedItem> orderedItem, @RequestParam("userId")int userId) throws UserdefineException {
-        return   orderedItemServiceImpl.orderItem(orderedItem,userId);
+    public  String orderItem(@RequestBody List<OrderedItem> orderedItem, @RequestParam("userId")int userId,@RequestParam("restaurantId")int restaurantId) throws UserdefineException {
+        return   orderedItemServiceImpl.orderItem(orderedItem,userId,restaurantId);
 
     }
 }
