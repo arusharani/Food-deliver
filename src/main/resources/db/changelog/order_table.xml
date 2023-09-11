@@ -48,7 +48,7 @@
         <column name="user_id" value="101"/>
         <column name="restaurant_id" value="501"/>
         <column name="total_amount" value="900.00"/>
-        <column name="status" value="preparing"/>
+        <column name="status" value="PREPARING"/>
     </insert>
 
 
@@ -56,28 +56,28 @@
             <column name="user_id" value="103"/>
             <column name="restaurant_id" value="502"/>
             <column name="total_amount" value="600.00"/>
-            <column name="status" value="preparing"/>
+            <column name="status" value="PREPARING"/>
         </insert>
 
         <insert tableName="orders">
             <column name="user_id" value="102"/>
             <column name="restaurant_id" value="503"/>
             <column name="total_amount" value="400.00"/>
-            <column name="status" value="on_the_way"/>
+            <column name="status" value="ON_THE_WAY"/>
         </insert>
 
         <insert tableName="orders">
             <column name="user_id" value="104"/>
             <column name="restaurant_id" value="503"/>
             <column name="total_amount" value="400.00"/>
-            <column name="status" value="on_the_way"/>
+            <column name="status" value="ON_THE_WAY"/>
         </insert>
 
         <insert tableName="orders">
             <column name="user_id" value="105"/>
             <column name="restaurant_id" value="504"/>
             <column name="total_amount" value="700.00"/>
-            <column name="status" value="on_the_way"/>
+            <column name="status" value="ON_THE_WAY"/>
         </insert>
 
     </changeSet>

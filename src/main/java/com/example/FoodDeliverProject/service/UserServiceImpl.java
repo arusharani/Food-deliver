@@ -1,7 +1,7 @@
 package com.example.FoodDeliverProject.service;
 
 import com.example.FoodDeliverProject.entities.User;
-import com.example.FoodDeliverProject.exceptions.UserdefineException;
+import com.example.FoodDeliverProject.exceptions.UserDefineException;
 import com.example.FoodDeliverProject.repo.UserRepo;
 import com.example.FoodDeliverProject.serviceinterface.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addUser(User user) throws UserdefineException{
+    public User addUser(User user) throws UserDefineException {
 
         User user1 = new User();
         Pattern pattern = Pattern.compile("[6-9][0-9]{9}");
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
             user1.setPhoneNumber(user.getPhoneNumber());
         }
         else {
-            throw new UserdefineException("please enter a valid mobile no.");
+            throw new UserDefineException("please enter a valid mobile no.");
         }
         user1.setUsername(user.getUsername());
         user1.setUserAddress(user.getUserAddress());
@@ -42,18 +42,18 @@ public class UserServiceImpl implements UserService {
 
     }
      @Override
-    public void removeUser(int user_id) throws UserdefineException{
+    public void removeUser(int user_id) throws UserDefineException {
         Optional<User> user=userRepo.findById(user_id);
         if(user.isEmpty())
-            throw new UserdefineException("Invalid user id");
+            throw new UserDefineException("Invalid user id");
         userRepo.deleteById(user_id);
     }
 
     @Override
-    public User updateAddress(int user_id, String address) throws UserdefineException{
+    public User updateAddress(int user_id, String address) throws UserDefineException {
         Optional<User> users = userRepo.findById(user_id);
         if(users.isEmpty())
-            throw new UserdefineException("Invalid user id");
+            throw new UserDefineException("Invalid user id");
         User user1 = users.get();
         user1.setUserAddress(address);
         user1.setUpdatedAt(LocalDateTime.now());

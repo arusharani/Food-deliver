@@ -16,13 +16,13 @@ public class MenuController {
     @Autowired
     private MenuServiceImpl menuServiceImpl;
 
-    @GetMapping("/getMenu")
+    @GetMapping("/menus")
     public List<Menu> getMenu() {
 
         return menuServiceImpl.getMenu();
 
     }
-    @PostMapping("/item")
+    @PostMapping("/items")
     public Menu addItem(@RequestBody Menu menu) {
         return menuServiceImpl.addItem(menu);
     }

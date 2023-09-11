@@ -1,7 +1,7 @@
 package com.example.FoodDeliverProject.rest;
 
 import com.example.FoodDeliverProject.entities.Payment;
-import com.example.FoodDeliverProject.exceptions.UserdefineException;
+import com.example.FoodDeliverProject.exceptions.UserDefineException;
 import com.example.FoodDeliverProject.service.PaymentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +15,13 @@ import java.util.List;
 public class PaymentController {
     @Autowired
     private PaymentServiceImpl paymentServiceImpl;
-    @GetMapping("/getPayments")
+    @GetMapping("/payments")
     public List<Payment> getPayment() {
         return paymentServiceImpl.getPayment();
     }
 
     @PostMapping("/pay")
-    public Payment payIt(@RequestParam("orderId")int orderId,@RequestParam("userId")int userId,@RequestParam("paymentType")String paymentType) throws UserdefineException {
+    public Payment payIt(@RequestParam("order-id")int orderId,@RequestParam("user-id")int userId,@RequestParam("payment-type")String paymentType) throws UserDefineException {
         return paymentServiceImpl.payIt(orderId,userId,paymentType);
     }
 

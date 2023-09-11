@@ -19,29 +19,6 @@ public class Restaurant {
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-//    @OneToMany(mappedBy = "restaurants")
-//    @JsonIgnore
-//    private List<Order> orders;
-
-//    @OneToMany(mappedBy = "restaurant")
-//    @JsonIgnore
-//    private List<Menu> menu;
-
-//    public List<Order> getOrders() {
-//        return orders;
-//    }
-//
-//    public void setOrders(List<Order> orders) {
-//        this.orders = orders;
-//    }
-//
-//    public List<Menu> getMenu() {
-//        return menu;
-//    }
-//
-//    public void setMenu(List<Menu> menu) {
-//        this.menu = menu;
-//    }
 
 
     public int getRestaurantId() {

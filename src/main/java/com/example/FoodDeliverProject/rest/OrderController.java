@@ -1,7 +1,8 @@
 package com.example.FoodDeliverProject.rest;
 
 import com.example.FoodDeliverProject.entities.Order;
-import com.example.FoodDeliverProject.exceptions.UserdefineException;
+import com.example.FoodDeliverProject.entities.OrderedItem;
+import com.example.FoodDeliverProject.exceptions.UserDefineException;
 import com.example.FoodDeliverProject.service.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,25 +14,27 @@ public class OrderController {
 
     @Autowired
     private OrderServiceImpl orderServiceImpl;
-    @GetMapping("/getOrders")
+    @GetMapping("/orders")
     public List<Order> getOrders() {
 
         return orderServiceImpl.getOrders();
 
     }
-    @GetMapping("/getOrders/{userid}")
-    public List<Order> getOrders(@PathVariable("userid") int userId) throws UserdefineException {
+    @GetMapping("/orders/{user-id}")
+    public List<Order> getOrders(@PathVariable("user-id") int userId) throws UserDefineException {
 
         return orderServiceImpl.getOrdersByUser(userId);
     }
 
-    @DeleteMapping("/cancelOrder/{orderId}")
-    public String cancelOrder(int orderId) throws UserdefineException {
+    @DeleteMapping("/orders/{order-Id}")
+    public String cancelOrder(int orderId) throws UserDefineException {
         return orderServiceImpl.cancelOrder(orderId);
     }
-//    @PutMapping("/order_address/{orderid}/address/{address}")
-//    public String updateaddress(@PathVariable("orderid")int id,@PathVariable("address")String address) throws UserdefineException {
-//
-//    return orderServiceImpl.updateAddress(id,address);
-//    }
+
+    @PostMapping("/ordered-Items")
+    public  String orderItem(@RequestBody List<OrderedItem> orderedItem, @RequestParam("user-Id")int userId, @RequestParam("restaurant-Id")int restaurantId) throws UserDefineException {
+        return   orderServiceImpl.orderItem(orderedItem,userId,restaurantId);
+
+    }
+
 }

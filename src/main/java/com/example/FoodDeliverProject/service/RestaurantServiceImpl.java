@@ -1,7 +1,7 @@
 package com.example.FoodDeliverProject.service;
 
 import com.example.FoodDeliverProject.entities.Restaurant;
-import com.example.FoodDeliverProject.exceptions.UserdefineException;
+import com.example.FoodDeliverProject.exceptions.UserDefineException;
 import com.example.FoodDeliverProject.repo.RestaurantRepo;
 import com.example.FoodDeliverProject.serviceinterface.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
 
-    public Restaurant addRestaurant(Restaurant restaurant)throws UserdefineException {
+    public Restaurant addRestaurant(Restaurant restaurant)throws UserDefineException {
 
         Restaurant restaurant1 = new Restaurant();
         Pattern pattern = Pattern.compile("[6-9][0-9]{9}");
@@ -35,7 +35,7 @@ public class RestaurantServiceImpl implements RestaurantService {
             restaurant1.setContactNumber(restaurant1.getContactNumber());
         }
         else {
-            throw new UserdefineException("please enter a valid mobile no.");
+            throw new UserDefineException("please enter a valid mobile no.");
         }
 
         restaurant1.setRestaurantName(restaurant.getRestaurantName());
@@ -48,17 +48,19 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public void removeRestaurant(int restaurant_id) throws UserdefineException {
+    public void removeRestaurant(int restaurant_id) throws UserDefineException {
         Optional<Restaurant> restaurant = restaurantRepo.findById(restaurant_id);
         if (restaurant.isEmpty())
-            throw new UserdefineException("Invalid restaurant id");
+            throw new UserDefineException("Invalid restaurant id");
         restaurantRepo.deleteById(restaurant_id);
     }
 
     @Override
-    public Restaurant updateAddress(int restaurant_id,String address) {
+    public Restaurant updateAddress(int restaurant_id,String address) throws UserDefineException{
         Optional<Restaurant> restaurant = restaurantRepo.findById(restaurant_id);
-
+        if(restaurant.isEmpty()){
+            throw new UserDefineException("Invalid restaurantId ");
+        }
         Restaurant restaurant1 = restaurant.get();
         restaurant1.setRestaurantAddress(address);
         restaurant1.setUpdatedAt(LocalDateTime.now());

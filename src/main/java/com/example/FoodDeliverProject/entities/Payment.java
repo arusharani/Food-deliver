@@ -1,6 +1,6 @@
 package com.example.FoodDeliverProject.entities;
 
-import com.example.FoodDeliverProject.enums.PAYMENTSTATUS;
+import com.example.FoodDeliverProject.enums.PaymentStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -17,7 +17,7 @@ public class Payment {
     private double paymentAmount;
     private LocalDateTime createdAt;
     @Enumerated(EnumType.STRING)
-    private PAYMENTSTATUS status;
+    private PaymentStatus status;
 
     @OneToOne
     @JoinColumn(name = "orderId",referencedColumnName ="orderId",insertable = false,updatable = false )
@@ -64,11 +64,11 @@ public class Payment {
         this.createdAt = createdAt;
     }
 
-    public PAYMENTSTATUS getStatus() {
+    public PaymentStatus getStatus() {
         return status;
     }
 
-    public void setStatus(PAYMENTSTATUS status) {
+    public void setStatus(PaymentStatus status) {
         this.status = status;
     }
 
