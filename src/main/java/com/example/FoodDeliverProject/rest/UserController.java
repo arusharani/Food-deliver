@@ -1,7 +1,7 @@
 package com.example.FoodDeliverProject.rest;
 
 import com.example.FoodDeliverProject.entities.User;
-import com.example.FoodDeliverProject.exceptions.UserdefineException;
+import com.example.FoodDeliverProject.exceptions.UserDefineException;
 import com.example.FoodDeliverProject.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,25 +14,25 @@ public class UserController {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @GetMapping("/getUser")
+    @GetMapping("/users")
     public List<User> getUsers(){
         return userServiceImpl.getUsers();
     }
 
-    @PostMapping("/user")
-    public User addUser(@RequestBody User user) throws UserdefineException{
+    @PostMapping("/users")
+    public User addUser(@RequestBody User user) throws UserDefineException {
         return  userServiceImpl.addUser(user);
     }
 
-    @DeleteMapping("/User/{user_id}")
-    public String removeUser(@PathVariable("user_id")int user_id) throws UserdefineException{
-        userServiceImpl.removeUser(user_id);
-        return "deleted User "+user_id;
+    @DeleteMapping("/users/{user-id}")
+    public String removeUser(@PathVariable("user-id")int userId) throws UserDefineException {
+        userServiceImpl.removeUser(userId);
+        return "deleted User "+userId;
     }
 
-    @PutMapping("/Address/{user_id}/address/{address}")
-    public User updateAddress(@PathVariable("user_id")int user_id, @PathVariable("address")String address) throws UserdefineException {
-        return userServiceImpl.updateAddress(user_id,address);
+    @PutMapping("/user-address/{user-id}/address/{address}")
+    public User updateAddress(@PathVariable("user-id")int userId, @PathVariable("address")String address) throws UserDefineException {
+        return userServiceImpl.updateAddress(userId,address);
     }
 
 

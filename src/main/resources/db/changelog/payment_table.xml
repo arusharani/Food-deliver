@@ -52,7 +52,7 @@
         <column name="payment_amount" value="900.00"/>
 
         <column name="payment_type" value="cash on deliver"/>
-        <column name="status" value="pending"/>
+        <column name="status" value="PENDING"/>
         <column name="created_at" value="2023-09-01 11:30:00"/>
     </insert>
 
@@ -60,7 +60,7 @@
         <column name="order_id" value="901"/>
         <column name="payment_amount" value="600.00"/>
         <column name="payment_type" value="online payment"/>
-        <column name="status" value="success"/>
+        <column name="status" value="SUCCESS"/>
         <column name="created_at" value="2023-09-02 12:30:00"/>
     </insert>
 
@@ -68,7 +68,7 @@
         <column name="order_id" value="902"/>
         <column name="payment_amount" value="400.00"/>
         <column name="payment_type" value="online payment"/>
-        <column name="status" value="success"/>
+        <column name="status" value="SUCCESS"/>
         <column name="created_at" value="2023-09-05 08:30:00"/>
     </insert>
 
@@ -76,7 +76,7 @@
         <column name="order_id" value="903"/>
         <column name="payment_amount" value="400.00"/>
         <column name="payment_type" value="upi"/>
-        <column name="status" value="success"/>
+        <column name="status" value="SUCCESS"/>
         <column name="created_at" value="2023-09-05 08:30:00"/>
     </insert>
 
@@ -84,7 +84,7 @@
         <column name="order_id" value="904"/>
         <column name="payment_amount" value="700.00"/>
         <column name="payment_type" value="upi"/>
-        <column name="status" value="success"/>
+        <column name="status" value="SUCCESS"/>
         <column name="created_at" value="2023-09-06 09:30:00"/>
     </insert>
 

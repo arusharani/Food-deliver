@@ -1,6 +1,6 @@
 package com.example.FoodDeliverProject.entities;
 
-import com.example.FoodDeliverProject.enums.ORDERSTATUS;
+import com.example.FoodDeliverProject.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -17,7 +17,7 @@ public class Order {
     private int restaurantId;
     private double totalAmount;
     @Enumerated(EnumType.STRING)
-    private ORDERSTATUS status;
+    private OrderStatus status;
   @ManyToOne
   @JoinColumn(name="userId",referencedColumnName = "userId",insertable = false,updatable = false)
   @JsonIgnore
@@ -68,11 +68,11 @@ public class Order {
         this.totalAmount = totalAmount;
     }
 
-    public ORDERSTATUS getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 
-    public void setStatus(ORDERSTATUS status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
 
