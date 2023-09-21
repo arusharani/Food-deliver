@@ -7,14 +7,14 @@
 
 
     <changeSet id="8" author="aa">
-        <createTable tableName="Payments">
+        <createTable tableName="payments">
 
             <column name="payment_id" type="int" autoIncrement="true" startWith="10001" incrementBy="1">
                 <constraints primaryKey="true"/>
             </column>
 
             <column name="order_id" type="integer">
-                <constraints nullable="false"/>
+                <constraints uniqueConstraintName="true"/>
 
             </column>
 

@@ -10,4 +10,6 @@ public interface PaymentService {
     public List<Payment> getPayment();
 
     Payment payIt(int orderId, int userId,String paymentType) throws UserDefineException;
+
+
 }

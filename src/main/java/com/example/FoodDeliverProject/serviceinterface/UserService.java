@@ -14,4 +14,8 @@ public interface UserService {
     public User addUser(User user) throws UserDefineException;
 
      User updateAddress(int user_id, String address) throws UserDefineException;
+
+    User updatePassword(int userId, String password);
+
+    // public String authenticateAndGetToken(@RequestBody AuthRequest authRequest);
 }

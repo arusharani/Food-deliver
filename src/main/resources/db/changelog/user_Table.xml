@@ -35,6 +35,12 @@
             <column name="updated_at" type="datetime">
                 <constraints nullable="false"/>
             </column>
+            <column name="roles" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
 
 
         </createTable>
@@ -47,6 +53,8 @@
         <column name="user_address" value="vepagunta"/>
         <column name="created_at" value="2023-09-01 10:30:00"/>
         <column name="updated_at" value="2023-09-03 09:30:00"/>
+        <column name="roles" value="ROLE_ADMIN"/>
+        <column name="password" value="usha"/>
     </insert>
 
         <insert tableName="users">
@@ -55,6 +63,8 @@
             <column name="user_address" value="nad"/>
             <column name="created_at" value="2023-09-02 10:30:00"/>
             <column name="updated_at" value="2023-09-06 09:30:00"/>
+            <column name="roles" value="ROLE_USER"/>
+            <column name="password" value="madhu"/>
         </insert>
 
         <insert tableName="users">
@@ -63,6 +73,8 @@
             <column name="user_address" value="pendurthi"/>
             <column name="created_at" value="2023-09-01 10:30:00"/>
             <column name="updated_at" value="2023-09-07 09:30:00"/>
+            <column name="roles" value="ROLE_USER"/>
+            <column name="password" value="padhu"/>
         </insert>
 
         <insert tableName="users">
@@ -71,6 +83,8 @@
             <column name="user_address" value="pendurthi"/>
             <column name="created_at" value="2023-09-02 10:30:00"/>
             <column name="updated_at" value="2023-09-08 09:30:00"/>
+            <column name="roles" value="ROLE_USER"/>
+            <column name="password" value="maha"/>
         </insert>
 
         <insert tableName="users">
@@ -79,6 +93,8 @@
         <column name="user_address" value="gopalapatnam"/>
             <column name="created_at" value="2023-09-03 10:30:00"/>
             <column name="updated_at" value="2023-09-06 09:30:00"/>
+            <column name="roles" value="ROLE_USER"/>
+            <column name="password" value="vardhan"/>
     </insert>
 
         <insert tableName="users">
@@ -87,6 +103,8 @@
             <column name="user_address" value="gajuwaka"/>
             <column name="created_at" value="2023-09-05 10:30:00"/>
             <column name="updated_at" value="2023-09-06 09:30:00"/>
+            <column name="roles" value="ROLE_USER"/>
+            <column name="password" value="neelu"/>
         </insert>
 
 
