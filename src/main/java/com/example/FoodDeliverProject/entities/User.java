@@ -1,6 +1,6 @@
 package com.example.FoodDeliverProject.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -15,9 +15,31 @@ public class User {
     private String username;
     private String phoneNumber;
     private String userAddress;
+    private String password;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+//    @Enumerated(EnumType.STRING)
+//    private Roles roles;
+
+  private String roles;
+
+  public String getRoles() {
+    return roles;
+  }
+
+  public void setRoles(String roles) {
+    this.roles = roles;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
 
   public int getUserId() {

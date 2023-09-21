@@ -1,10 +1,12 @@
 package com.example.FoodDeliverProject.service;
 
 import com.example.FoodDeliverProject.entities.User;
+
 import com.example.FoodDeliverProject.exceptions.UserDefineException;
 import com.example.FoodDeliverProject.repo.UserRepo;
 import com.example.FoodDeliverProject.serviceinterface.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,6 +19,15 @@ import java.util.regex.Pattern;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+//    @Autowired
+//    private AuthenticationManager authenticationManager;
+//
+//    @Autowired
+//    private JwtService jwtService;
      @Override
     public List<User> getUsers() {
         return userRepo.findAll();
@@ -36,8 +47,16 @@ public class UserServiceImpl implements UserService {
         }
         user1.setUsername(user.getUsername());
         user1.setUserAddress(user.getUserAddress());
+        user1.setPassword(passwordEncoder.encode(user.getPassword()));
         user1.setCreatedAt(LocalDateTime.now());
         user1.setUpdatedAt(LocalDateTime.now());
+        if(user.getRoles().equals("ROLE_USER")||user.getRoles().equals("ROLE_ADMIN")){
+            user1.setRoles(user.getRoles());
+        }
+        else{
+            throw new UserDefineException("Please enter a valid role");
+        }
+
         return userRepo.save(user1);
 
     }
@@ -50,8 +69,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateAddress(int user_id, String address) throws UserDefineException {
-        Optional<User> users = userRepo.findById(user_id);
+    public User updateAddress(int userId, String address) throws UserDefineException {
+        Optional<User> users = userRepo.findById(userId);
         if(users.isEmpty())
             throw new UserDefineException("Invalid user id");
         User user1 = users.get();
@@ -60,5 +79,27 @@ public class UserServiceImpl implements UserService {
         userRepo.save(user1);
         return user1;
     }
+
+    @Override
+    public User updatePassword(int userId, String password) {
+         Optional<User> user = userRepo.findById(userId);
+         User user1 = user.get();
+         user1.setPassword(passwordEncoder.encode(password));
+         user1.setUpdatedAt(LocalDateTime.now());
+          return userRepo.save(user1);
+
+    }
+
+//    @Override
+//    public String authenticateAndGetToken(AuthRequest authRequest) {
+//        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(),authRequest.getPassword()));
+//        if(authentication.isAuthenticated()){
+//            return jwtService.generateToken(authRequest.getUsername());
+//        }
+//        else {
+//            throw new UsernameNotFoundException("user not found");
+//        }
+//
+//    }
 
 }
