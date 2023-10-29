@@ -24,6 +24,7 @@
             </column>
 
 
+
             <column name="user_address" type="varchar(70)">
                 <constraints nullable="false"/>
             </column>

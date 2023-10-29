@@ -23,11 +23,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-//    @Autowired
-//    private AuthenticationManager authenticationManager;
-//
-//    @Autowired
-//    private JwtService jwtService;
+
      @Override
     public List<User> getUsers() {
         return userRepo.findAll();
@@ -45,9 +41,15 @@ public class UserServiceImpl implements UserService {
         else {
             throw new UserDefineException("please enter a valid mobile no.");
         }
+
         user1.setUsername(user.getUsername());
         user1.setUserAddress(user.getUserAddress());
-        user1.setPassword(passwordEncoder.encode(user.getPassword()));
+        if(user1.getPassword().length()>1) {
+            user1.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
+        else
+            throw new UserDefineException("invalid size");
+
         user1.setCreatedAt(LocalDateTime.now());
         user1.setUpdatedAt(LocalDateTime.now());
         if(user.getRoles().equals("ROLE_USER")||user.getRoles().equals("ROLE_ADMIN")){
@@ -80,6 +82,8 @@ public class UserServiceImpl implements UserService {
         return user1;
     }
 
+
+
     @Override
     public User updatePassword(int userId, String password) {
          Optional<User> user = userRepo.findById(userId);
@@ -90,16 +94,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
-//    @Override
-//    public String authenticateAndGetToken(AuthRequest authRequest) {
-//        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(),authRequest.getPassword()));
-//        if(authentication.isAuthenticated()){
-//            return jwtService.generateToken(authRequest.getUsername());
-//        }
-//        else {
-//            throw new UsernameNotFoundException("user not found");
-//        }
-//
-//    }
+
+
 
 }
