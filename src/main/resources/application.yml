@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fooddeliver23?user=postgres&password=usha
+    username: postgres
+    password: usha
+    driver-class: org.postgresql.Driver
+
+server:
+  port: 8889
